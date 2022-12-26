@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 微軟正黑體;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 50px;
+            background-color: white;
+            border-bottom: 1px solid #000;
+        }
+
+        .logo {
+            margin-left: 15px;
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: aqua;
+        }
+
+        #logo-img {
+            width: 30px;
+            height: 30px;
+        }
+
+        nav {
+            margin-left: 70px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 15px;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .menu-btn {
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        .menu-btn>a {
+            color: #000;
+            text-decoration: none;
+            font-weight: 900;
+        }
+
+        .search-bar {
+            display: flex;
+        }
+
+        .search-input {
+            background-color: rgb(218, 218, 218);
+            border: none;
+            border-radius: 5px;
+        }
+
+        .search-btn {
+            margin-left: 3px;
+            width: 35px;
+            height: 36px;
+            background-color: brown;
+        }
+
+        #search-btn-img {
+            width: 35px;
+            height: 36px;
+
+        }
+
+        .member {
+            display: flex;
+            align-items: center;
+        }
+
+        .prime-btn {
+            width: 40px;
+            height: 40px;
+            background-color: lightcoral;
+
+        }
+
+        #prime-btn-img {
+            width: 40px;
+            height: 40px;
+
+        }
+
+        .sign-in-sign-out {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 0;
+            margin-left: 10px;
+            padding: 0;
+            list-style-type: none;
+            text-align: center;
+            line-height: 30px;
+
+        }
+
+        .sign-in {
+            width: 40px;
+            height: 30px;
+            background-color: rgb(218, 218, 218);
+            border-radius: 5px;
+
+
+        }
+
+        .sign-out {
+            width: 40px;
+            height: 30px;
+            background-color: rgb(212, 87, 212);
+            border-radius: 5px;
+        }
+
+        .sign-in>a,
+        .sign-out>a {
+            text-decoration: none;
+            color: #000;
+            font-size: 10px;
+            font-weight: 900;
+            text-align: center;
+        }
+
+        .sign-out>a {
+            color: white;
+        }
+
+        .core-btn {
+            margin: 15px;
+            width: 20px;
+            height: 20px;
+            background-color: blueviolet;
+        }
+
+        #core-btn-img {
+            width: 20px;
+            height: 20px;
+
+        }
+
+        aside {
+            display: flex;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 5px;
+            width: 50px;
+            height: calc(100vh - 50px);
+            background-color: rgba(160, 170, 180, 0.192);
+        }
+
+        .circle {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            width: 33px;
+            height: 33px;
+            background-color: pink;
+            border-radius: 99em;
+        }
+
+
+
+
+        main {
+            margin: 50px 0 0 50px;
+        }
+
+        .container {
+            padding: 24px 27px;
+        }
+
+        .container>h1 {
+            margin: 0 0 10px 0;
+            font-size: 57px;
+        }
+
+        .e-sport-description {
+            margin-top: 0;
+            margin-bottom: 46px;
+            color: rgb(94, 83, 83);
+            font-size: 24px;
+            font-weight: 900;
+        }
+
+        .e-sport>.row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 6px;
+        }
+
+        .e-sport>.row>.col {
+            min-width: 293px;
+
+        }
+
+
+        .game-card {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px;
+            background-color: rgb(218, 218, 218);
+            border-radius: 5px;
+        }
+
+        .game-img {
+            width: 40px;
+            height: 50px;
+            background-color: rgb(241, 178, 236);
+            border-radius: 5px;
+        }
+
+        .game-info {
+            width: 178px;
+            font-size: 13px;
+        }
+
+        .live-block {
+            height: 50px;
+        }
+
+        .live {
+            display: inline;
+            padding: 2px 8px;
+            font-weight: bold;
+            border-radius: 5px;
+            background-color: red;
+            color: white;
+            font-size: 13px;
+        }
+
+        .game-info>p {
+            margin: 0;
+        }
+
+
+
+        .stream-block {
+            display: flex;
+            margin: 0 -10px;
+            
+        }
+
+        .highlight {
+            padding: 0 10px;
+            width: 33.33%;
+        }
+
+        .stream-block>.row {
+            display: flex;
+            flex-wrap: wrap;
+            width: 66.66%;
+            row-gap: 20px;
+        }
+
+        .stream-block>.row>.col {
+            max-width: 25%;
+            padding: 0 10px;
+        }
+        .highlight .thumbnail{
+            height: 331px;
+        }
+        .stream-group .thumbnail{
+            height: 160px;
+
+        }
+        .thumbnail{
+           position: relative;
+            width: 100%;
+            background-color: aqua;
+        }
+
+        .thumbnail>.live{
+            position: absolute;
+            left: 10px;
+            top: 10px;
+           
+        }
+        .audience{
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+            padding: 0 3px;
+            border-radius: 3px;
+            font-size: 3px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+        }
+        .stream-group{
+            font-size: 13px;
+        }
+        .streamer{
+            margin-top: 10px;
+            align-items: center;
+            display: flex;
+            
+
+        }
+        .avatar{
+            width: 20px;
+            height: 20px;
+            border-radius: 50pc;
+            background-color: blueviolet;
+
+        }
+        .name{
+            padding: 0 5px;
+            color: blueviolet;
+            font-weight: bold;
+        }
+        .stream-title{
+            width: 100%;
+            margin-top: 5px;
+            font-weight: 1000;
+            text-overflow: -o-ellipsis-lastling;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        .stream-game{
+            margin-top: 5px;
+            font-size: 10px;
+            color: rgb(107, 107, 107);
+            font-weight: bold;
+        }
+        @media screen and (max-width:976px) {
+            .stream-block>.row>.col {
+                max-width: 50%;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img id="logo-img" src="https://www.clipartmax.com/png/small/130-1301211_spiele-twitch-logo.png" alt="">
+        </div>
+        <nav>
+            <ul class="menu">
+                <li class="menu-btn">
+                    <a href="">瀏覽</a>
+                </li>
+                <li class="menu-btn">
+                    <a href="">‧‧‧
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" class="search-input" size="40">
+            <div class="search-btn">
+                <img id="search-btn-img"
+                    src="https://media.istockphoto.com/vectors/search-icon-of-vector-magnifier-for-internet-search-engine-or-web-vector-id1032608594"
+                    alt="">
+            </div>
+        </div>
+        <div class="member">
+            <div class="prime-btn">
+                <img id="prime-btn-img"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRLJInhbonFveKYOKZVdjm8bdzeSJIlywowQ&usqp=CAU"
+                    alt="">
+            </div>
+            <ul class="sign-in-sign-out">
+                <li class="sign-in">
+                    <a href="">登入</a>
+                </li>
+                <li class="sign-out">
+                    <a href="">註冊</a>
+                </li>
+            </ul>
+            <div class="core-btn">
+                <img id="core-btn-img" src="https://pic.616pic.com/ys_img/00/05/77/VtEdkTMuxJ.jpg" alt="">
+            </div>
+        </div>
+
+
+    </header>
+
+    <aside>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </aside>
+
+    <main>
+        <div class="container">
+            <div class="e-sport">
+                <h1>電競</h1>
+                <p class="e-sport-description">
+                    即時賽況、賽事精華和您最愛的職業玩家都在這裡
+                </p>
+                <div class="row">
+                    <div class="col">
+                        <div class="game-card">
+                            <div class="game-img"></div>
+                            <div class="game-info">
+                                <p class="game-name">LOL</p>
+                                <p class="sub-info">觀眾人數:1,880</p>
+                            </div>
+                            <div class="live-block">
+                                <div class="live">LIVE</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="game-card">
+                            <div class="game-img"></div>
+                            <div class="game-info">
+                                <p class="game-name">LOL</p>
+                                <p class="sub-info">觀眾人數:1,880</p>
+                            </div>
+                            <div class="live-block">
+                                <div class="live">LIVE</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="game-card">
+                            <div class="game-img"></div>
+                            <div class="game-info">
+                                <p class="game-name">LOL</p>
+                                <p class="sub-info">觀眾人數:1,880</p>
+                            </div>
+                            <div class="live-block">
+                                <div class="live">LIVE</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="game-card">
+                            <div class="game-img"></div>
+                            <div class="game-info">
+                                <p class="game-name">LOL</p>
+                                <p class="sub-info">觀眾人數:1,880</p>
+                            </div>
+                            <div class="live-block">
+                                <div class="live">LIVE</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="game-card">
+                            <div class="game-img"></div>
+                            <div class="game-info">
+                                <p class="game-name">LOL</p>
+                                <p class="sub-info">觀眾人數:1,880</p>
+                            </div>
+                            <div class="live-block">
+                                <div class="live">LIVE</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="game-card">
+                            <div class="game-img"></div>
+                            <div class="game-info">
+                                <p class="game-name">LOL</p>
+                                <p class="sub-info">觀眾人數:1,880</p>
+                            </div>
+                            <div class="live-block">
+                                <div class="live">LIVE</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="game-card">
+                            <div class="game-img"></div>
+                            <div class="game-info">
+                                <p class="game-name">LOL</p>
+                                <p class="sub-info">觀眾人數:1,880</p>
+                            </div>
+                            <div class="live-block">
+                                <div class="live">LIVE</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="game-card">
+                            <div class="game-img"></div>
+                            <div class="game-info">
+                                <p class="game-name">LOL</p>
+                                <p class="sub-info">觀眾人數:1,880</p>
+                            </div>
+                            <div class="live-block">
+                                <div class="live">LIVE</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="game-card">
+                            <div class="game-img"></div>
+                            <div class="game-info">
+                                <p class="game-name">LOL</p>
+                                <p class="sub-info">觀眾人數:1,880</p>
+                            </div>
+                            <div class="live-block">
+                                <div class="live">LIVE</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="game-card">
+                            <div class="game-img"></div>
+                            <div class="game-info">
+                                <p class="game-name">LOL</p>
+                                <p class="sub-info">觀眾人數:1,880</p>
+                            </div>
+                            <div class="live-block">
+                                <div class="live">LIVE</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="game-card">
+                            <div class="game-img"></div>
+                            <div class="game-info">
+                                <p class="game-name">LOL</p>
+                                <p class="sub-info">觀眾人數:1,880</p>
+                            </div>
+                            <div class="live-block">
+                                <div class="live">LIVE</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="game-card">
+                            <div class="game-img"></div>
+                            <div class="game-info">
+                                <p class="game-name">LOL</p>
+                                <p class="sub-info">觀眾人數:1,880</p>
+                            </div>
+                            <div class="live-block">
+                                <div class="live">LIVE</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+
+
+
+                </div>
+            </div>
+            <div class="streaming">
+                <h2>實況中的對戰</h2>
+                <p class="live-description">我們認為您會喜歡的最精采LIVE比賽和對戰</p>
+                <div class="stream-block">
+                    <div class="highlight">
+                        <div class="stream-card">
+                            <div class="thumbnail">
+                                <div class="live">LIVE</div>
+                                <div class="audience">觀眾人數:1,880</div>
+
+                            </div>
+                            <div class="stream-info">
+                                <div class="streamer">
+                                    <div class="avatar"></div>
+                                    <div class="name">LoooooL</div>
+                                </div>
+                                <div class="stream-title">
+                                    Hi!My name is Shanna.Hi!My name is Shanna.Hi!My name is Shanna.
+                                </div>
+                                <div class="stream-game">League of Leadends ‧ 英文</div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row stream-group">
+                        <div class="col">
+                            <div class="stream-card">
+                                <div class="stream-card">
+                                    <div class="thumbnail">
+                                        <div class="live">LIVE</div>
+                                        <div class="audience">觀眾人數:1,880</div>
+                                    </div>
+                                    <div class="stream-info">
+                                        <div class="streamer">
+                                            <div class="avatar"></div>
+                                            <div class="name">LoooooL</div>
+                                        </div>
+                                        <div class="stream-title">
+                                            Hi!My name is Shanna.Hi!My name is Shanna.Hi!My name is Shanna.
+                                        </div>
+                                        <div class="stream-game">League of Leadends ‧ 英文</div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col">
+                            <div class="stream-card">
+                                <div class="stream-card">
+                                    <div class="thumbnail">
+                                        <div class="live">LIVE</div>
+                                        <div class="audience">觀眾人數:1,880</div>
+                                    </div>
+                                    <div class="stream-info">
+                                        <div class="streamer">
+                                            <div class="avatar"></div>
+                                            <div class="name">LoooooL</div>
+                                        </div>
+                                        <div class="stream-title">
+                                            Hi!My name is Shanna.Hi!My name is Shanna.Hi!My name is Shanna.
+                                        </div>
+                                        <div class="stream-game">League of Leadends ‧ 英文</div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col">
+                            <div class="stream-card">
+                                <div class="stream-card">
+                                    <div class="thumbnail">
+                                        <div class="live">LIVE</div>
+                                        <div class="audience">觀眾人數:1,880</div>
+                                    </div>
+                                    <div class="stream-info">
+                                        <div class="streamer">
+                                            <div class="avatar"></div>
+                                            <div class="name">LoooooL</div>
+                                        </div>
+                                        <div class="stream-title">
+                                            Hi!My name is Shanna.Hi!My name is Shanna.Hi!My name is Shanna.
+                                        </div>
+                                        <div class="stream-game">League of Leadends ‧ 英文</div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col">
+                            <div class="stream-card">
+                                <div class="stream-card">
+                                    <div class="thumbnail">
+                                        <div class="live">LIVE</div>
+                                        <div class="audience">觀眾人數:1,880</div>
+                                    </div>
+                                    <div class="stream-info">
+                                        <div class="streamer">
+                                            <div class="avatar"></div>
+                                            <div class="name">LoooooL</div>
+                                        </div>
+                                        <div class="stream-title">
+                                            Hi!My name is Shanna.Hi!My name is Shanna.Hi!My name is Shanna.
+                                        </div>
+                                        <div class="stream-game">League of Leadends ‧ 英文</div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col">
+                            <div class="stream-card">
+                                <div class="stream-card">
+                                    <div class="thumbnail">
+                                        <div class="live">LIVE</div>
+                                        <div class="audience">觀眾人數:1,880</div>
+                                    </div>
+                                    <div class="stream-info">
+                                        <div class="streamer">
+                                            <div class="avatar"></div>
+                                            <div class="name">LoooooL</div>
+                                        </div>
+                                        <div class="stream-title">
+                                            Hi!My name is Shanna.Hi!My name is Shanna.Hi!My name is Shanna.
+                                        </div>
+                                        <div class="stream-game">League of Leadends ‧ 英文</div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col">
+                            <div class="stream-card">
+                                <div class="stream-card">
+                                    <div class="thumbnail">
+                                        <div class="live">LIVE</div>
+                                        <div class="audience">觀眾人數:1,880</div>
+                                    </div>
+                                    <div class="stream-info">
+                                        <div class="streamer">
+                                            <div class="avatar"></div>
+                                            <div class="name">LoooooL</div>
+                                        </div>
+                                        <div class="stream-title">
+                                            Hi!My name is Shanna.Hi!My name is Shanna.Hi!My name is Shanna.
+                                        </div>
+                                        <div class="stream-game">League of Leadends ‧ 英文</div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col">
+                            <div class="stream-card">
+                                <div class="stream-card">
+                                    <div class="thumbnail">
+                                        <div class="live">LIVE</div>
+                                        <div class="audience">觀眾人數:1,880</div>
+                                    </div>
+                                    <div class="stream-info">
+                                        <div class="streamer">
+                                            <div class="avatar"></div>
+                                            <div class="name">LoooooL</div>
+                                        </div>
+                                        <div class="stream-title">
+                                            Hi!My name is Shanna.Hi!My name is Shanna.Hi!My name is Shanna.
+                                        </div>
+                                        <div class="stream-game">League of Leadends ‧ 英文</div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col">
+                            <div class="stream-card">
+                                <div class="stream-card">
+                                    <div class="thumbnail">
+                                        <div class="live">LIVE</div>
+                                        <div class="audience">觀眾人數:1,880</div>
+                                    </div>
+                                    <div class="stream-info">
+                                        <div class="streamer">
+                                            <div class="avatar"></div>
+                                            <div class="name">LoooooL</div>
+                                        </div>
+                                        <div class="stream-title">
+                                            Hi!My name is Shanna.Hi!My name is Shanna.Hi!My name is Shanna.
+                                        </div>
+                                        <div class="stream-game">League of Leadends ‧ 英文</div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+
+
+</body>
+
+</html>
